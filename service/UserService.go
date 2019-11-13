@@ -8,7 +8,7 @@ import (
 // UserService is ...
 type UserService interface {
 	GetAll(*vo.User) []*entity.User
-	Create(*vo.User)
+	Create(*vo.User) error
 }
 
 // NewUserService is ...
@@ -24,6 +24,6 @@ func (s *userService) GetAll(userVO *vo.User) []*entity.User {
 	return users
 }
 
-func (s *userService) Create(userVO *vo.User) {
-	userVO.RDBTX.Create(userVO.User)
+func (s *userService) Create(userVO *vo.User) error {
+	return userVO.RDBTX.Create(userVO.User).Error
 }

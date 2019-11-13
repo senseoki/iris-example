@@ -1,13 +1,13 @@
 package controller
 
 import (
+	"log"
 	"time"
 
 	"github.com/jinzhu/gorm"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/mvc"
 	"github.com/senseoki/iris_ex/entity"
-	"github.com/senseoki/iris_ex/middleware"
 	"github.com/senseoki/iris_ex/service"
 	"github.com/senseoki/iris_ex/vo"
 )
@@ -26,9 +26,8 @@ func (c *UserController) BeforeActivation(b mvc.BeforeActivation) {
 		ctx.Next()
 	}
 
-	b.Handle("GET", "/user", "GetUser", anyMiddlewareHere, middleware.RdbTX)
-	b.Handle("POST", "/user", "CreateUser", anyMiddlewareHere, middleware.RdbTX)
-
+	b.Handle("GET", "/user", "GetUser", anyMiddlewareHere)
+	b.Handle("POST", "/user", "CreateUser", anyMiddlewareHere)
 }
 
 // GetUser is ...
@@ -51,13 +50,18 @@ func (c *UserController) CreateUser() {
 	userVO := &vo.User{
 		RDBTX: c.Ctx.Values().Get("RDBTX").(*gorm.DB),
 		User: &entity.User{
-			Email:     "test01@gmail.com",
-			FirstName: "lee",
-			LastName:  "sangock",
 			CreatedAt: timeNow,
 			UpdatedAt: timeNow,
 		},
 	}
 
-	c.UserService.Create(userVO)
+	if err := c.Ctx.ReadJSON(userVO.User); err != nil {
+		log.Println("Fail Verify Parameter ReadJSON")
+		return
+	}
+
+	err := c.UserService.Create(userVO)
+	if err != nil {
+		c.Ctx.StatusCode(iris.StatusInternalServerError)
+	}
 }

@@ -11,6 +11,7 @@ import (
 	"github.com/kataras/iris/v12/mvc"
 	"github.com/senseoki/iris_ex/controller"
 	"github.com/senseoki/iris_ex/datasource"
+	"github.com/senseoki/iris_ex/middleware"
 	"github.com/senseoki/iris_ex/service"
 
 	"github.com/kataras/iris/v12/middleware/recover"
@@ -23,6 +24,7 @@ func main() {
 
 	datasource.CreateRDB()
 
+	app.Use(middleware.RdbTX)
 	app.Use(recover.New())
 	app.Logger().SetLevel("info")
 	mvc.Configure(app.Party("/basic"), basicMVC)

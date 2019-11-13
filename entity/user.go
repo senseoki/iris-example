@@ -4,10 +4,10 @@ import "time"
 
 // User is ...
 type User struct {
-	ID        uint64 `gorm:"primary_key"`
-	Email     string
-	FirstName string
-	LastName  string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        uint64    `gorm:"primary_key"`
+	Email     string    `json:"email"`
+	FirstName string    `json:"first_name"`
+	LastName  string    `json:"last_name"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }

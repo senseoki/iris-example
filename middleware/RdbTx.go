@@ -1,6 +1,8 @@
 package middleware
 
 import (
+	"log"
+
 	"github.com/kataras/iris/v12"
 	"github.com/senseoki/iris_ex/datasource"
 )
@@ -23,8 +25,10 @@ func RdbTX(ctx iris.Context) {
 	defer func(isTx bool) {
 		if isTx {
 			if ctx.GetStatusCode() >= 500 {
+				log.Println("RDB TX Rollback")
 				tx.Rollback()
 			} else {
+				log.Println("RDB TX Commit")
 				tx.Commit()
 			}
 		}
