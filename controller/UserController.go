@@ -26,12 +26,13 @@ func (c *UserController) BeforeActivation(b mvc.BeforeActivation) {
 		ctx.Next()
 	}
 
-	b.Handle("GET", "/user", "GetUser", anyMiddlewareHere)
+	b.Handle("GET", "/user", "GetAllUser", anyMiddlewareHere)
+	b.Handle("GET", "/user/{email:string}", "GetUserByEmail", anyMiddlewareHere)
 	b.Handle("POST", "/user", "CreateUser", anyMiddlewareHere)
 }
 
-// GetUser is ...
-func (c *UserController) GetUser() {
+// GetAllUser is ...
+func (c *UserController) GetAllUser() {
 	userVO := &vo.User{
 		RDBTX: c.Ctx.Values().Get("RDBTX").(*gorm.DB),
 	}
@@ -41,6 +42,19 @@ func (c *UserController) GetUser() {
 	// })
 
 	c.Ctx.JSON(users)
+}
+
+// GetUserByEmail is ...
+func (c *UserController) GetUserByEmail() {
+	userVO := &vo.User{
+		RDBTX: c.Ctx.Values().Get("RDBTX").(*gorm.DB),
+		User: &entity.User{
+			Email: c.Ctx.Params().GetString("email"),
+		},
+	}
+
+	user := c.UserService.GetUserByEmail(userVO)
+	c.Ctx.JSON(user)
 }
 
 // CreateUser is ...
