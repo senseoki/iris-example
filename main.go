@@ -30,7 +30,7 @@ func main() {
 	mvc.Configure(app.Party("/basic"), basicMVC)
 
 	app.Run(
-		iris.Addr("localhost:8080"),
+		iris.Addr("localhost:9000"),
 		iris.WithoutServerError(iris.ErrServerClosed),
 		iris.WithOptimizations,
 		iris.WithoutInterruptHandler,
