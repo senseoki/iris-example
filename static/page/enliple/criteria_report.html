@@ -32,72 +32,51 @@
             <!-- /.card-header -->
             <div class="card-body">
                 <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label>CustomerId</label>
-                    <select class="form-control select2bs4" id="customer-id" style="width: 100%;">
-                        <option selected="selected">선택</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>CustomerId</label>
+                            <select class="form-control select2bs4" id="customer-id" style="width: 100%;">
+                                <option selected="selected">선택</option>
+                                <option>Alaska</option>
+                                <option>California</option>
+                                <option>Delaware</option>
+                                <option>Tennessee</option>
+                                <option>Texas</option>
+                                <option>Washington</option>
+                            </select>
+                        </div>
+                        <!-- /.form-group -->
+                        <div class="form-group">
+                            <label>날짜</label>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
+                                <label for="customRadio1" class="custom-control-label">TODAY</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
+                                <label for="customRadio2" class="custom-control-label">YESTERDAY</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
+                                <label for="customRadio3" class="custom-control-label">LAST_7_DAYS</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
+                                <label for="customRadio3" class="custom-control-label">THIS_MONTH</label>
+                            </div>
+                        </div>
+                        <!-- /.form-group -->
+                        <div class="form-group">
+                            <button type="button" class="btn btn-block bg-gradient-success btn-lg" id="excel">Excel</button>
+                        </div>
                     </div>
-                    <!-- /.form-group -->
-                    <div class="form-group">
-                    <label>Disabled</label>
-                    <select class="form-control select2bs4" disabled="disabled" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                    </div>
-                    <!-- /.form-group -->
-                </div>
-                <!-- /.col -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label>Multiple</label>
-                    <select class="select2bs4" multiple="multiple" data-placeholder="Select a State"
-                            style="width: 100%;">
-                        <option>Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                    </div>
-                    <!-- /.form-group -->
-                    <div class="form-group">
-                    <label>Disabled Result</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option disabled="disabled">California (disabled)</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                    </div>
-                    <!-- /.form-group -->
-                </div>
-                <!-- /.col -->
+                    <!-- /.col -->
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
-                the plugin.
+                
             </div>
         </div>
         <!-- /.card -->
