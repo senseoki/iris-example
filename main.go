@@ -35,7 +35,7 @@ func main() {
 
 	htmlConfig(app)
 
-	datasource.CreateRDB()
+	//datasource.CreateRDB()
 
 	app.Use(iris.Gzip)
 	app.Use(middleware.RdbTX)
@@ -47,7 +47,7 @@ func main() {
 	mvc.Configure(app.Party("/enlipleads"), enlipleAdsMVC)
 
 	app.Run(
-		iris.Addr("localhost:9000"),
+		iris.Addr("0.0.0.0:9000"),
 		iris.WithoutServerError(iris.ErrServerClosed),
 		iris.WithOptimizations,
 		iris.WithoutInterruptHandler,

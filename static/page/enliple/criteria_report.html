@@ -31,44 +31,54 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+                <form name="form" method="post">
+                    <input type="hidden" name="customerId">
+                    <input type="hidden" name="fileName">
+                    <input type="hidden" name="during">
+                </form>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>CustomerId</label>
                             <select class="form-control select2bs4" id="customer-id" style="width: 100%;">
                                 <option selected="selected">선택</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
                             </select>
                         </div>
                         <!-- /.form-group -->
                         <div class="form-group">
                             <label>날짜</label>
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
+                            <!-- <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio1" name="duringRadio" value="TODAY">
                                 <label for="customRadio1" class="custom-control-label">TODAY</label>
-                            </div>
+                            </div> -->
                             <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
+                                <input class="custom-control-input" type="radio" id="customRadio2" name="duringRadio" value="YESTERDAY" checked>
                                 <label for="customRadio2" class="custom-control-label">YESTERDAY</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
+                                <input class="custom-control-input" type="radio" id="customRadio3" name="duringRadio" value="LAST_7_DAYS">
                                 <label for="customRadio3" class="custom-control-label">LAST_7_DAYS</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
-                                <label for="customRadio3" class="custom-control-label">THIS_MONTH</label>
+                                <input class="custom-control-input" type="radio" id="customRadio4" name="duringRadio" value="THIS_MONTH">
+                                <label for="customRadio4" class="custom-control-label">THIS_MONTH</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio5" name="duringRadio" value="LAST_MONTH">
+                                <label for="customRadio5" class="custom-control-label">LAST_MONTH</label>
                             </div>
                         </div>
                         <!-- /.form-group -->
                         <div class="form-group">
-                            <button type="button" class="btn btn-block bg-gradient-success btn-lg" id="excel">Excel</button>
+                            <button type="button" class="btn btn-block bg-gradient-success btn-lg" id="excel-keyWord">Excel-키워드</button>
                         </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-block bg-gradient-success btn-lg" id="excel-accountPerformance">Excel-계정실적</button>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-block bg-gradient-success btn-lg" id="excel-stream">Excel-Stream</button>
+                        </div>
+                        
                     </div>
                     <!-- /.col -->
                 </div>
